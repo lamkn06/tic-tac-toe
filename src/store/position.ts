@@ -8,11 +8,39 @@ export interface PositionState {
   positions: {
     [key: string]: PositionKind;
   };
+  container: {
+    cross: {
+      rows: number[];
+      cols: number[];
+      diagonal: number[];
+      oppositeDiagonal: number[];
+    };
+    cricle: {
+      rows: number[];
+      cols: number[];
+      diagonal: number[];
+      oppositeDiagonal: number[];
+    };
+  };
 }
 
 const initialState: PositionState = {
   value: "cross",
   positions: {},
+  container: {
+    cross: {
+      rows: [0, 0, 0],
+      cols: [0, 0, 0],
+      diagonal: [0, 0, 0],
+      oppositeDiagonal: [0, 0, 0],
+    },
+    cricle: {
+      rows: [0, 0, 0],
+      cols: [0, 0, 0],
+      diagonal: [0, 0, 0],
+      oppositeDiagonal: [0, 0, 0],
+    },
+  },
 };
 
 const move = createSlice({

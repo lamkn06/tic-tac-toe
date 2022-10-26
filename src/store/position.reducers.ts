@@ -7,15 +7,31 @@ export const reducers = {
     state.value = state.value === "cross" ? "cricle" : "cross";
   },
 
-  setMove(state: PositionState, action: PayloadAction<string>) {
-    const isExisted = state.positions[action.payload] !== undefined;
+  setMove(
+    state: PositionState,
+    action: PayloadAction<{ row: number; col: number }>,
+  ) {
+    const { row, col } = action.payload;
+
+    const positionKey = `${row},${col}`;
+    const isExisted = state.positions[positionKey] !== undefined;
+
     if (isExisted) {
       return;
     }
 
+    const nextValue = state.value === "cross" ? "cricle" : "cross";
+
     state.positions = {
       ...state.positions,
-      [action.payload]: state.value === "cross" ? "cricle" : "cross",
+      [positionKey]: nextValue,
     };
+
+    state.container[nextValue].rows[row] += 1;
+    state.container[nextValue].cols[col] += 1;
+
+    if (row === col) {
+      state.container[nextValue].diagonal[row] += 1;
+    }
   },
 };

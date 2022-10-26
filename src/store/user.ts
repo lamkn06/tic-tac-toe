@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ApplicationRootState } from "../types";
 
 import { reducers } from "./user.reducers";
 
@@ -15,5 +16,13 @@ const follow = createSlice({
   initialState,
   reducers,
 });
+
+export const selectIsWinner = (state: ApplicationRootState): boolean => {
+  const { container, value } = state.position;
+  const rowWinner = container[value].rows.includes(3);
+  const colWinner = container[value].cols.includes(3);
+  const diagonalWinner = `${container[value].diagonal}` === `1,1,1`;
+  return rowWinner || colWinner || diagonalWinner;
+};
 
 export default follow.reducer;

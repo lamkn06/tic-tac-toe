@@ -22,7 +22,7 @@ const MainPage = () => {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          Wellcome to{" "}
+          Welcome to{" "}
           <Text as={"span"} color={"orange.400"}>
             tic-tac-toe
           </Text>
