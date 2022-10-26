@@ -1,12 +1,12 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-
-export const createReducer = (injectedReducers = {}) =>
-  combineReducers({
-    ...injectedReducers,
-  });
+import { configureStore } from "@reduxjs/toolkit";
+import position from "./store/position";
+import user from "./store/user";
 
 const store = configureStore({
-  reducer: createReducer(),
+  reducer: {
+    user,
+    position,
+  },
 });
 
 export default store;
