@@ -14,6 +14,7 @@ export const Item = (props: Props) => {
       variant="outline"
       width={"100px"}
       height={"100px"}
+      borderWidth={"3px"}
       onClick={props.onClick}
       _disabled={{
         background: "#edf2f7",
@@ -27,7 +28,7 @@ export const Item = (props: Props) => {
       }}
     >
       {props.value && props.value === "cross" && "X"}
-      {props.value && props.value === "cricle" && "O"}
+      {props.value && props.value === "circle" && "O"}
     </Button>
   );
 };

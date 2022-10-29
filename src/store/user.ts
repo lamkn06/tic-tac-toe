@@ -11,7 +11,7 @@ const initialState: UserState = {
   name: undefined,
 };
 
-const follow = createSlice({
+const user = createSlice({
   name: "user",
   initialState,
   reducers,
@@ -21,8 +21,13 @@ export const selectIsWinner = (state: ApplicationRootState): boolean => {
   const { container, value } = state.position;
   const rowWinner = container[value].rows.includes(3);
   const colWinner = container[value].cols.includes(3);
+
   const diagonalWinner = `${container[value].diagonal}` === `1,1,1`;
-  return rowWinner || colWinner || diagonalWinner;
+  const oppositeWinner = `${container[value].oppositeDiagonal}` === `1,1,1`;
+
+  return rowWinner || colWinner || diagonalWinner || oppositeWinner;
 };
 
-export default follow.reducer;
+export const { setName } = user.actions;
+
+export default user.reducer;

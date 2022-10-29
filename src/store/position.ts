@@ -15,7 +15,7 @@ export interface PositionState {
       diagonal: number[];
       oppositeDiagonal: number[];
     };
-    cricle: {
+    circle: {
       rows: number[];
       cols: number[];
       diagonal: number[];
@@ -24,7 +24,7 @@ export interface PositionState {
   };
 }
 
-const initialState: PositionState = {
+export const initialState: PositionState = {
   value: "cross",
   positions: {},
   container: {
@@ -34,7 +34,7 @@ const initialState: PositionState = {
       diagonal: [0, 0, 0],
       oppositeDiagonal: [0, 0, 0],
     },
-    cricle: {
+    circle: {
       rows: [0, 0, 0],
       cols: [0, 0, 0],
       diagonal: [0, 0, 0],
@@ -49,6 +49,6 @@ const move = createSlice({
   reducers,
 });
 
-export const { setValue, setMove } = move.actions;
+export const { setValue, setPosition, resetPosition } = move.actions;
 
 export default move.reducer;

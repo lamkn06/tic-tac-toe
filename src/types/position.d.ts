@@ -1,4 +1,4 @@
-export type PositionKind = "cross" | "cricle";
+export type PositionKind = "cross" | "circle";
 
 export interface PositionType {
   value: string;
