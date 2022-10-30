@@ -43,12 +43,12 @@ export const initialState: PositionState = {
   },
 };
 
-const move = createSlice({
-  name: "move",
+const position = createSlice({
+  name: "position",
   initialState,
   reducers,
 });
 
-export const { setValue, setPosition, resetPosition } = move.actions;
+export const { setValue, setPosition, resetPosition } = position.actions;
 
-export default move.reducer;
+export default position.reducer;
